@@ -111,3 +111,14 @@ void fourier_back_from_array(double* fourierreal, double* fourierimag){
   histo_back = TH1::TransformHisto(fft_back, hb, "Re");
   histo_back->Draw();
 }
+
+void fourier_back_from_histo(TH1* histo_transformed){
+  // Make sure that histo_transformed was transformed with the option "RE" and not "MAG", or else the back transformation will not be correct
+  // Define histogram to save the back transformation in
+  TH1 *histo_back = 0;
+  histo_back = histo_transformed->FFT(histo_back, "Re");
+
+  TCanvas *canvas = new TCanvas("canvas", "Canvas Title", 0, 0, 600, 600);
+  histo_back->SetTitle("Histogram after reverse fourier transform");
+  histo_back->Draw();
+}
