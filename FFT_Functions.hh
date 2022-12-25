@@ -72,7 +72,7 @@ void fourier_from_histo( TH1D *histo , double* real, double* imag){
   fft->GetPointsComplex(real, imag);
 }
 
-void fourier_from_array( double* datapoints){
+void fourier_from_array(double* datapoints){
   // Get length of the datapoints array:
   int n = sizeof(*datapoints) / sizeof(double) ;
 
@@ -94,4 +94,20 @@ void fourier_from_array( double* datapoints){
   // Want to save the output data in arrays again?
   // Overwrite the datapoints array:
   fft_own->GetPoints(datapoints);
+}
+
+void fourier_back_from_array(double* fourierreal, double* fourierimag){
+  // Get length of the datapoints array:
+  int n = sizeof(*freqpoints_real) / sizeof(double) ;
+  
+  // Create a TVirtualFFT object for the back transform
+  TVirtualFFT *fft_back = TVirtualFFT::FFT(1, &n, "C2R M K");
+  fft_back->SetPointsComplex(freqpoints_real, freqpoints_imag);
+  fft_back->Transform();
+
+  // Create canvas and Histogram for plotting
+  TCanvas *canvas_back = new TCanvas("canvas_back", "Reverse Fourier Transform", 0, 0, 600, 600);
+  TH1 *histo_back = 0;
+  histo_back = TH1::TransformHisto(fft_back, hb, "Re");
+  histo_back->Draw();
 }
