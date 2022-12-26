@@ -1,2 +1,2 @@
 # CPPRootFFT
-Code for using FFT in ROOT C++
+Header files with functions for using FFT in the C++ data analysis framework ROOT
