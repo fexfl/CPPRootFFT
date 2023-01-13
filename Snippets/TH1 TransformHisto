@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: TH1 TransformHisto
+# key: histoTH
+# --
+histo = TH1::TransformHisto(fft, histo, "MAG");

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: TVirtualFFT GetCurrentTransform
+# key: TVirtualFFTGCT
+# --
+TVirtualFFT *fft = TVirtualFFT::GetCurrentTransform();
