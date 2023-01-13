@@ -4,6 +4,9 @@
 
 // Performing a FFT from a TF1 Function as the starting point:
 void fourier_from_function( TF1 *fun , double* real, double* imag){
+  // Our function is saved in a FT1 object.
+  // The double arrays "real" and "imag" are used to save our transformed data later.
+  
   double xmin, xmax;
   // Set xmin and xmax to the Range values defined in the function
   fun->GetRange(xmin, xmax);

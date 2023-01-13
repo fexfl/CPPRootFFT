@@ -58,6 +58,11 @@ void FFT_ffh_modcos(){
   // Perform the transform through the function defined in the header
   fourier_from_histo(histo, real, imag);
 
+  // print magnitude values
+  for (int i=0; i<n; i++){
+    std::cout << "Bin: " << i << " Magnitude: " << TMath::Sqrt( real[i]*real[i] + imag[i]*imag[i]) << std::endl;
+  }
+
   // Now transform back
   fourier_back_from_array(real, imag, n);
 }
