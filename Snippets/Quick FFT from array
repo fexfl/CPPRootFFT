@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Quick FFT from array
+# key: QFFTA
+# --
+TVirtualFFT *fft_own = TVirtualFFT::FFT(1, &n, "R2C ES K");
+fft_own->SetPoints(datapoints);
+fft_own->Transform();
+TH1 *histo_f = 0;
+histo_f = TH1::TransformHisto(fft_own, histo_f, "MAG");
+fft_own->GetPoints(datapoints);
