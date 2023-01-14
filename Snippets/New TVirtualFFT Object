@@ -2,4 +2,4 @@
 # name: New TVirtualFFT Object
 # key: TVirtualFFT
 # --
-TVirtualFFT *fft = TVirtualFFT:FFT(1, &n, "R2C ES K");
+TVirtualFFT *fft = TVirtualFFT::FFT(1, &n, "R2C ES K");
