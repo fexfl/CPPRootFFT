@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Quick FFT from Histogram
-# key: QFFTH
-# --
-TH1 *histo_f = 0;
-histo_f = histo->FFT(histo_f, "MAG");
-TVirtualFFT *fft = TVirtualFFT::GetCurrentTransform();
-fft->GetPointsComplex(real, imag);
